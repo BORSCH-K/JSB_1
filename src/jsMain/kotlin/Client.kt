@@ -13,9 +13,6 @@ fun main() {
 //    }
 //    createRoot(container).render(welcome)
 
-    val mulTable = MulTable.create{
-        name = "Kotlin/JS"
-    }
 
     val table = Table.create{
         name = "Kotlin/JS"
