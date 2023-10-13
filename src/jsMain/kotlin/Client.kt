@@ -13,11 +13,10 @@ fun main() {
 //    }
 //    createRoot(container).render(welcome)
 
-
     val table = Table.create{
         name = "Kotlin/JS"
     }
-    createRoot(container).render(table) // меняется
+    createRoot(container).render(table)
 }
 
 

@@ -2,21 +2,14 @@ import csstype.TextAlign
 import csstype.px
 import emotion.react.css
 import kotlinx.browser.document
-import org.w3c.dom.Element
-import org.w3c.dom.HTMLElement
 import org.w3c.dom.HTMLInputElement
 import react.FC
 import react.Props
-import react.dom.html.ReactHTML.button
 import react.dom.html.ReactHTML.div
 import react.dom.html.ReactHTML.input
-import react.dom.html.ReactHTML.li
-import react.dom.html.ReactHTML.s
-import react.dom.html.ReactHTML.style
 import react.dom.html.ReactHTML.table
 import react.dom.html.ReactHTML.th
 import react.dom.html.ReactHTML.tr
-import react.dom.html.ReactHTML.ul
 import react.useState
 
 typealias AttrName = String
@@ -31,14 +24,6 @@ external interface TableProps : Props {
 
 
 fun onClickButton() {
-//    val sum = 0
-//    for (i in 0 until students.size){
-//        var temp = document.getElementById("1") as HTMLInputElement
-//        sum += temp.toFloat()
-//
-//
-//    }
-//    val i = "0"
 
     var sum = 0F
 
@@ -55,9 +40,6 @@ fun onClickButton() {
     input2.value = (sum/(students.size)).toString()
 
 
-//    val input1: HTMLInputElement = document.getElementById(i) as HTMLInputElement
-//    val input2: HTMLInputElement = document.getElementById("sred") as HTMLInputElement
-//    input2.value = input1.value.toFloat().toString()
 
 }
 
@@ -97,24 +79,30 @@ val Table = FC<TableProps> { props ->
 //                        form = "circle"
 //                        width = 5.0
 //                        form =
+//                        autoComplete = AutoComplete.on
+                        defaultValue = number[i].toString()
                         size = 1
                         id = students[i].second.toString()
-//                        value = number[i].toString()
+                        onChange = { onClickButton()}
+//                        value = "0" //number[i].toString()
                     }
                 }
             }
         }
 
-        button {
-            +"Средняя оценка"
-            onClick = { onClickButton() }
-        }
+//        button {
+//            +"Средняя оценка"
+//            onClick = { onClickButton() }
+//        }
+        +"Средняя оценка"
         input {
 //            type = InputType.submit
 
 //            +onClickButton().toString()
             id = "sred"
             size = 1
+//            defaultValue = { onClickButton() }
+
 //            autoComplete = AutoComplete.off
 //                {onClickButton().toString()}
 //            value = onClickButton().toString()
