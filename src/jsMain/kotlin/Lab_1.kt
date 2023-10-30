@@ -1,17 +1,10 @@
-import csstype.HtmlAttributes
-import csstype.px
-import csstype.rgb
 import react.FC
 import react.Props
-import emotion.react.css
 import kotlinx.browser.document
 import org.w3c.dom.HTMLInputElement
-import org.w3c.dom.events.Event
-import react.dom.html.InputType
 import react.dom.html.ReactHTML.body
 import react.dom.html.ReactHTML.button
 import react.dom.html.ReactHTML.div
-import react.dom.html.ReactHTML.head
 import react.dom.html.ReactHTML.input
 import react.useState
 
@@ -48,8 +41,8 @@ fun onClickButton3() {
     input2.value = input1.value.CtoK()
 }
 
-val Welcome = FC<WelcomeProps> { props ->
-    var name by useState(props.name)
+val Lab_1 = FC<Props> {
+//    var name by useState(props.name)
     div {
 //        head {
 ////            +"АААААА"

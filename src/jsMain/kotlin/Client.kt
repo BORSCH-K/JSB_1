@@ -6,21 +6,6 @@ fun main() {
     val container = document.createElement("div")
     document.body!!.appendChild(container)
 
-//    document.bgColor = "red"
-
-//    val welcome = Welcome.create {
-//        name = "Kotlin/JS"
-//    }
-//    createRoot(container).render(welcome)
-
-    val table = Table.create{
-        name = "Kotlin/JS"
-    }
-    createRoot(container).render(table)
+    val client = Lab_2.create{}
+    createRoot(container).render(client)
 }
-
-
-
-// react
-// html
-// серверная и клиентская части
