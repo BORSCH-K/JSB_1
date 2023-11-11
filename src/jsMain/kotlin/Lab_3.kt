@@ -1,8 +1,6 @@
 import react.FC
 import react.Props
-import react.dom.html.InputType
 import react.dom.html.ReactHTML.div
-import react.dom.html.ReactHTML.input
 import react.dom.html.ReactHTML.table
 import react.dom.html.ReactHTML.th
 import react.dom.html.ReactHTML.tr
@@ -14,9 +12,8 @@ val students =
 
 val Lab_3 = FC<Props> {
 
-    val (grades, stateGrades) = useState(mutableListOf(4, 5, 2, 3, 4, 5, 2, 4, 5))
+    val (grades, stateGrades) = useState(listOf(4, 5, 2, 3, 4, 5, 2, 4, 5))
 
-//    console.log(grades)
     div {
         table {
             students.forEachIndexed { index, student ->
@@ -26,9 +23,10 @@ val Lab_3 = FC<Props> {
                         sGrade {
                             grade = grades[index]
                             setGrade = { num ->
-                                val newGrade = grades.toMutableList()
-                                newGrade[index] = num
-//                                console.log(newGrade)
+                                val newGrade =  grades.mapIndexed{ i, gr ->
+                                    if (index == i) num
+                                    else gr
+                                }
                                 stateGrades(newGrade)
                             }
                         }
@@ -38,10 +36,8 @@ val Lab_3 = FC<Props> {
         }
 
         +"Средняя оценка:"
-//        console.log("average")
         average {
             gradesAverage = (grades.sum().toFloat()/grades.size)
-//            console.log("gradesAverage")
         }
     }
 }

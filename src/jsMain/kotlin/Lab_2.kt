@@ -2,7 +2,6 @@ import csstype.TextAlign
 import csstype.px
 import emotion.react.css
 import react.FC
-import react.Props
 import react.dom.html.InputType
 import react.dom.html.ReactHTML.div
 import react.dom.html.ReactHTML.input
@@ -10,12 +9,6 @@ import react.dom.html.ReactHTML.table
 import react.dom.html.ReactHTML.th
 import react.dom.html.ReactHTML.tr
 import react.useState
-
-
-external interface TableProps : Props {
-    var students: List<Pair<String, Int>>
-}
-
 
 
 val Lab_2 = FC<TableProps> {

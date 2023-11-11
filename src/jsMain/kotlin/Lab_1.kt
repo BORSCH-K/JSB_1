@@ -8,9 +8,6 @@ import react.dom.html.ReactHTML.div
 import react.dom.html.ReactHTML.input
 import react.useState
 
-external interface WelcomeProps : Props {
-    var name: String
-}
 
 fun String.CtoF() = (this.toFloat() * 9) / 5 + 32
 fun String.FtoC() = (this.toFloat() - 32) * 5 / 9
@@ -21,7 +18,6 @@ fun String.CtoK(): String {
     }
     return a.toString()
 }
-
 
 fun onClickButton1() {
     val input1: HTMLInputElement = document.getElementById("pole1") as HTMLInputElement
@@ -42,26 +38,17 @@ fun onClickButton3() {
 }
 
 val Lab_1 = FC<Props> {
-//    var name by useState(props.name)
     div {
-//        head {
-////            +"АААААА"
-////       title("Калькулятор")
-//        }
         body {
-//        +"Привет!"
             div {
                 input {
                     id = "pole1"
                 }
-//                +"Поле ввода"
             }
-//        val a = input()
             div {
                 input {
                     id = "pole2"
                 }
-//                +"Поле вывода"
             }
             div {
                 button {
