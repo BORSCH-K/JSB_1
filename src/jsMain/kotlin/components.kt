@@ -1,3 +1,4 @@
+import csstype.Color
 import emotion.react.css
 import react.FC
 import react.Props
@@ -51,15 +52,9 @@ val average = FC<AverageProps> { prop ->
 
 // 4 лаба
 
-//external interface ModePickerProps: Props {
-//    var _mode: String
-//    var _setMode: StateSetter<String>
-//}
-
 val sGradeColor = FC<GradeProps> { prop ->
 
     input {
-
         type = InputType.number
         min = 2.0
         max = 5.0
@@ -74,7 +69,7 @@ val sGradeColor = FC<GradeProps> { prop ->
             prop.setGrade(prop.grade)
         }
         css{
-            background = useContext(colorOutput)[prop.grade-2]
+            background = Color(useContext(colorOutput)[prop.grade-2])
         }
     }
 }
