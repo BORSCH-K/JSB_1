@@ -1,4 +1,5 @@
 import csstype.Color
+import csstype.TextAlign
 import emotion.react.css
 import react.FC
 import react.Props
@@ -46,7 +47,7 @@ external interface AverageProps : Props {
 
 val average = FC<AverageProps> { prop ->
     div {
-        +prop.gradesAverage.toString()
+        +"Средняя оценка: ${prop.gradesAverage}"
     }
 }
 
@@ -72,4 +73,14 @@ val sGradeColor = FC<GradeProps> { prop ->
             background = Color(useContext(colorOutput)[prop.grade-2])
         }
     }
+}
+
+external interface ModeSizePickerProps : Props {
+    var _size: Int
+    var _setSize: StateSetter<Int>
+}
+
+external interface ModePickerProps : Props {
+    var _mode: List<String>
+    var _setMode: StateSetter<List<String>>
 }
