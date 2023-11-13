@@ -1,14 +1,12 @@
 import csstype.Color
+import csstype.FontSize
 import csstype.px
-import csstype.rgb
 import emotion.react.css
 import react.*
 import react.dom.html.InputType
-import react.dom.html.ReactHTML
 import react.dom.html.ReactHTML.div
 import react.dom.html.ReactHTML.input
-import react.dom.html.ReactHTML.picture
-import react.dom.html.ReactHTML.s
+import react.dom.html.ReactHTML.p
 import react.dom.html.ReactHTML.table
 import react.dom.html.ReactHTML.th
 import react.dom.html.ReactHTML.tr
@@ -16,20 +14,31 @@ import react.dom.html.ReactHTML.tr
 
 val defaultColors = listOf("#B83B5E", "#F08A5D", "#F9ED69", "#3FC1C9")
 
-//    Color("#B83B5E"),
-//    Color("#F08A5D"),
-//    Color("#F9ED69"),
-//    Color("#3FC1C9"),
-//    rgb(184, 59, 94),
-//    rgb(240, 138, 93),
-//    rgb(249, 237, 105),
-//    rgb(63, 193, 201)
 val colorOutput = createContext<List<String>>()
+val sizeLettersContext = createContext<Int>()
+
+external interface ModeSizePickerProps : Props {
+    var _size: Int
+    var _setSize: StateSetter<Int>
+}
 
 external interface ModePickerProps : Props {
     var _mode: List<String>
     var _setMode: StateSetter<List<String>>
 }
+
+val CSizePicker = FC<ModeSizePickerProps>("CSizePicker") { props ->
+
+    input {
+        type = InputType.number
+        defaultValue = "10"
+        onChange = { event ->
+            props._size = event.target.value.toInt()
+            props._setSize(props._size)
+        }
+    }
+}
+
 
 val CModePicker = FC<ModePickerProps>("ModePicker") { props ->
 
@@ -62,7 +71,7 @@ val CModePicker = FC<ModePickerProps>("ModePicker") { props ->
     }
 }
 
-val TableGrades = FC<Props> ("TableGrades"){
+val TableGrades = FC<Props>("TableGrades") {
 
     val (grades, stateGrades) = useState(listOf(4, 5, 2, 3, 4, 5, 2, 4, 5))
 
@@ -71,7 +80,15 @@ val TableGrades = FC<Props> ("TableGrades"){
         table {
             students.forEachIndexed { index, student ->
                 tr {
-                    th { +student }
+                    th {
+//                        p{
+                            +student
+                            css {
+                                fontSize = useContext(sizeLettersContext).px
+                            }
+//                        }
+
+                    }
                     th {
                         sGradeColor {
                             grade = grades[index]
@@ -94,14 +111,22 @@ val TableGrades = FC<Props> ("TableGrades"){
         }
     }
 }
+
 val Lab_4 = FC<Props> {
 
     val (mode, setMode) = useState(defaultColors)
+    val (modeSize, setSize) = useState(10)
     CModePicker {
         _mode = mode
         _setMode = setMode
     }
-    colorOutput.Provider(mode) {
-        TableGrades {}
+    CSizePicker {
+        _size = modeSize
+        _setSize = setSize
+    }
+    sizeLettersContext.Provider(modeSize) {
+        colorOutput.Provider(mode) {
+            TableGrades {}
+        }
     }
 }
