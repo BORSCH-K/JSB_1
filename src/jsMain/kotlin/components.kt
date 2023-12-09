@@ -52,7 +52,6 @@ val average = FC<AverageProps> { prop ->
 }
 
 // 4 лаба
-
 val sGradeColor = FC<GradeProps> { prop ->
 
     input {
@@ -84,3 +83,7 @@ external interface ModePickerProps : Props {
     var _mode: List<String>
     var _setMode: StateSetter<List<String>>
 }
+
+// 5 лаба
+
+

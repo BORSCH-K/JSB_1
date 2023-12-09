@@ -41,7 +41,3 @@ val Lab_3 = FC<Props> {
         }
     }
 }
-
-
-
-

@@ -6,6 +6,6 @@ fun main() {
     val container = document.createElement("div")
     document.body!!.appendChild(container)
 
-    val client = Lab_4.create{}
+    val client = lab5My.Lab_5.create{}
     createRoot(container).render(client)
 }

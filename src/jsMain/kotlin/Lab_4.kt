@@ -1,5 +1,4 @@
-import csstype.Color
-import csstype.px
+import csstype.*
 import emotion.react.css
 import react.*
 import react.dom.html.InputType
